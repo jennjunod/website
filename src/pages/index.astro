@@ -6,15 +6,15 @@ import Card from '../components/generic/Card.astro';
 import Button from '../components/generic/Button.astro';
 import TagItem from '../components/blog/TagItem.astro';
 import { Image } from '@astrojs/image/components';
-import Photo from '../components/cards/photo.astro'
-import Name from '../components/cards/name.astro'
-import Bio from '../components/cards/bio.astro'
-import Test from '../components/cards/boilerplate.astro'
-import Aiven from '../components/cards/aiven.astro'
-import Podcast from '../components/cards/podcast.astro'
-import Livestream from '../components/cards/livestream.astro'
-import Projects from '../components/cards/projects.astro'
-import Jenn from '../components/cards/jenn.astro'
+import Photo from '../components/home/photo.astro'
+import Name from '../components/home/name.astro'
+import Bio from '../components/home/bio.astro'
+import Test from '../components/home/boilerplate.astro'
+import Aiven from '../components/home/aiven.astro'
+import Podcast from '../components/home/podcast.astro'
+import Livestream from '../components/home/livestream.astro'
+import Projects from '../components/home/projects.astro'
+import Jenn from '../components/home/jenn.astro'
 
 
 
@@ -32,13 +32,13 @@ const builtWith = [
 
 <Layout
   title='Home'
-  pageTitle='Brutal Theme | Home'
-  description='Brutal is a minimalistic, neobrutalism theme for Astro.'
+  pageTitle='Jenn Junod Home'
+  description='Jenn Junod is a Developer Advocate, Learning Live Streamer, and Podcast Host'
 >
   <main class='bg-black p-6'>
     <MobileSocials />
     <section id='about' class='grid md:grid-cols-12 gap-8 mt-4'>
-      <h2 class='hidden'>About Brutal</h2>
+      <h2 class='hidden'>About Jenn Junod</h2>
 
       <!-- <Photo /> -->
       <Jenn />
