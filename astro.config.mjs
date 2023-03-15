@@ -28,6 +28,7 @@ const colors = [
   '#911589',
   '#00EDD6',
   '#005B45',
+  '#921D9D',
 ];
 
 const getSafeList = () => {
