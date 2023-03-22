@@ -1,0 +1,23 @@
+---
+import Card from '../generic/Card.astro';
+
+import { Image } from '@astrojs/image/components';
+import src from '/public/jenn.png'
+import jennjunod from '/public/jennjunod.png'
+---
+
+<Card color='#005B45' extraClasses='md:col-span-4 !p-0'    border-4 
+    border-white>
+    <div
+    class='card bg-#005B45 border-3 border-black rounded-lg p-4 h-full flex flex-col justify-between'
+    >
+    <Image
+    class='object-cover h-full w-full rounded'
+    src={src}
+    alt='HippityHop DND Character'
+    width={800}
+    height={800}
+    border-4 
+    border-white
+    />
+</Card>
