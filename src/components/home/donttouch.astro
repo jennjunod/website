@@ -1,0 +1,22 @@
+---
+import Card from '../generic/Card.astro';
+
+import { Image } from '@astrojs/image/components';
+import src from '/public/jenn.png'
+import jennjunod from '/public/jennjunod.png'
+---
+
+<Card color='red' extraClasses='col-span-9 !p-0    border-4 border-white'>
+    <div
+    class='card bg-red border-3 border-black rounded-lg p-4 h-full flex flex-col justify-between'
+    >
+    <Image
+    class='object-fill h-full w-full rounded'
+    src={jennjunod}
+    alt='Photo of Jenn Junod'
+    width={600}
+    height={600}
+    border-4 
+    border-white
+    />
+</Card>
