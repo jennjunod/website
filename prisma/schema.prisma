@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Show {
+  id             Int              @id @default(autoincrement())
+  tags           String
+  name           String
+  Episode        Episode[]
+  EpisodeChannel EpisodeChannel[]
+
+  @@unique([tags, tags], map: "unique-show")
+}
+
+model Channel {
+  id             Int              @id(map: "Table_pkey") @default(autoincrement())
+  name           String
+  EpisodeChannel EpisodeChannel[]
+}
+
+model Episode {
+  id                                                 Int              @id(map: "EpisodeTable_pkey") @default(autoincrement())
+  name                                               String
+  tags                                               String
+  showID                                             Int
+  Show                                               Show             @relation(fields: [showID], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "showID")
+  EpisodeChannel_EpisodeChannel_episodeIdToEpisode   EpisodeChannel[] @relation("EpisodeChannel_episodeIdToEpisode")
+  EpisodeChannel_EpisodeChannel_episodeTagsToEpisode EpisodeChannel?  @relation("EpisodeChannel_episodeTagsToEpisode")
+
+  @@unique([tags, tags], map: "unique-episode")
+}
+
+model EpisodeChannel {
+  showTags                                    String
+  episodeTags                                 String
+  episodeId                                   Int
+  channelId                                   Int
+  link                                        String
+  Channel                                     Channel @relation(fields: [channelId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "channelId")
+  Episode_EpisodeChannel_episodeIdToEpisode   Episode @relation("EpisodeChannel_episodeIdToEpisode", fields: [episodeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "episodeId")
+  Episode_EpisodeChannel_episodeTagsToEpisode Episode @relation("EpisodeChannel_episodeTagsToEpisode", fields: [episodeTags], references: [tags], onDelete: NoAction, onUpdate: NoAction, map: "episodeTags")
+  Show                                        Show    @relation(fields: [showTags], references: [tags], onDelete: NoAction, onUpdate: NoAction, map: "showTags")
+
+  @@id([episodeId, channelId])
+  @@unique([episodeTags, episodeTags], map: "unique_episodeTags")
+}
