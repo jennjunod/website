@@ -1,0 +1,38 @@
+---
+import Button from "../generic/Button.astro";
+import Card from "../generic/Card.astro";
+import src from "/public/teachJennTech.png";
+import { Image } from "@astrojs/image/components";
+---
+<Card
+  color="#921D9D"
+  extraClasses="flex flex-col justify-between gap-4 items-start md:col-span-3"
+>
+  <div class="flex">
+    <div class="card bg-black border-3 border-black rounded-lg p-4 h-full flex flex-col justify-between">
+      <Image
+        class="object-cover h-full w-full rounded"
+        src={src}
+        alt="jenn"
+        width={200}
+        height={200}
+        border-4
+        border-white
+      />
+    </div>
+    <div class="ml-4">
+      <p class="mt-4 outfit text-2xl md:text-5xl lg:text-7xl color-white">
+        Teach Jenn Tech
+      </p>
+      <p class="mt-0 outfit text-xl md:text-3xl lg:text-1xl color-white">
+        Learning tech while learning live
+      </p>
+      <a
+        class="mt-4 outfit text-2xl md:text-5xl lg:text-2xl text-white"
+        target="_blank"
+        href="https://astro.build/"
+        >✨Wildly neurdivergent✨
+      </a>
+    </div>
+  </div>
+</Card>
