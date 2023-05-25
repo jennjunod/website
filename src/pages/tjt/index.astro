@@ -1,0 +1,27 @@
+---
+import Name from '../../components/tjt/tjtheadertext.astro'
+import Layout from '../../layouts/Default.astro';
+import MobileSocials from '../../components/home/MobileSocials.astro';
+
+import { getCollection } from 'astro:content';
+import BlogList from '../../components/blog/BlogList.astro';
+
+const posts = await getCollection('blog').then((collection) =>
+  collection.reverse()
+);
+---
+
+
+ <Layout title='Teach Jenn Tech' pageTitle='Teach Jenn Tech' description='Teach Jenn Tech'>
+    <main class='bg-black p-6'>
+      <MobileSocials />
+      <section id='about'>
+        <h2 class='hidden'>About Jenn Junod</h2>
+        <Name />
+      </section>
+      <div class="my-6">
+        <BlogList posts={posts} />
+      </div>
+    </main>
+  </Layout>
+  
