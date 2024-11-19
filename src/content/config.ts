@@ -4,7 +4,7 @@ const blogCollection = defineCollection({
     type: 'content', // v2.5.0 and later
     schema: ({image}) => z.object({
         title: z.string(),
-        intro: z.string(),
+        intro: z.string().optional(),
         tag: z.string(),
         image: image().optional(),
         author: reference('author'),
@@ -17,7 +17,7 @@ const pageCollection = defineCollection({
     type: 'content', // v2.5.0 and later
     schema: ({image}) => z.object({
         title: z.string(),
-        intro: z.string(),
+        intro: z.string().optional(),
         image: image().optional(),
         type: z.string().optional(),
     }),
