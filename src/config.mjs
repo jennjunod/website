@@ -2,8 +2,8 @@ export default {
     title: "Jenn Junod",
     titleSuffix: " | Full Stack Developer & Developer Advocate",
     description: "I specialize in making technology human — enabling developers to understand, adopt, and adore technical products.",
-    defaultOgImage: "./defaultog.jpg",
-    latestPosts: 3, 
+    defaultOgImage: "defaultog.jpg",
+        latestPosts: 3, 
     postsPerPage: 3,
     url: "https://jennjunod.dev",
     social: {

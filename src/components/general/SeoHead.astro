@@ -3,31 +3,42 @@ import config from '../../config.mjs';
 
 const { postData } = Astro.props;
 
-const title = ( postData?.data?.title ? postData.data.title : config.title ) + config.titleSuffix;
+// Base metadata
+const title = (postData?.data?.title ? postData.data.title : config.title) + config.titleSuffix;
 const description = postData?.data?.description ? postData.data.description : config.description;
-const permalink = new URL(Astro.url.pathname, Astro.url);
-const image = postData?.data?.image ? postData.data.image.src : config.defaultOgImage;
-const type = postData?.data?.type ? postData.data.type : "website";
+const permalink = new URL(Astro.url.pathname, Astro.site);
 
+// Image handling
+const defaultImagePath = config.defaultOgImage.replace(/^\.\//, '');
+const image = postData?.data?.image 
+  ? postData.data.image.src 
+  : defaultImagePath;
+
+const absoluteImageUrl = new URL(image, Astro.site).toString();
+const type = postData?.data?.type ? postData.data.type : "website";
 ---
 
+<!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 {description && <meta name="description" content={description} />}
 
+<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-<!-- Open Graph Tags (Facebook) -->
+<!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
+<meta property="og:site_name" content={config.title} />
 <meta property="og:title" content={title} />
-{permalink && <meta property="og:url" content={permalink} />}
+<meta property="og:url" content={permalink} />
 {description && <meta property="og:description" content={description} />}
-{image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+<meta property="og:image" content={absoluteImageUrl} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content={config.social?.twitter || ''} />
 <meta property="twitter:title" content={title} />
-{permalink && <meta property="twitter:url" content={permalink} />}
+<meta property="twitter:url" content={permalink} />
 {description && <meta property="twitter:description" content={description} />}
-{image && <meta property="twitter:image" content={new URL(image, Astro.site)} />}
+<meta property="twitter:image" content={absoluteImageUrl} />
