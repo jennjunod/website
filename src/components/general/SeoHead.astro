@@ -15,16 +15,19 @@ const type = postData?.data?.type ? postData.data.type : "website";
 <meta name="title" content={title} />
 {description && <meta name="description" content={description} />}
 
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
 <!-- Open Graph Tags (Facebook) -->
 <meta property="og:type" content={type} />
 <meta property="og:title" content={title} />
 {permalink && <meta property="og:url" content={permalink} />}
 {description && <meta property="og:description" content={description} />}
-{image && <meta property="og:image" content={new URL(image, Astro.url)} />}
+{image && <meta property="og:image" content={new URL(image, Astro.site)} />}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content={title} />
 {permalink && <meta property="twitter:url" content={permalink} />}
 {description && <meta property="twitter:description" content={description} />}
-{image && <meta property="twitter:image" content={image} />}
+{image && <meta property="twitter:image" content={new URL(image, Astro.site)} />}
