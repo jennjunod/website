@@ -1,11 +1,11 @@
 export default {
-    title: "Homepage",
-    titleSuffix: " | Pacamara ☕",
-    description: "Aromatic brew, pure indulgence, exquisite satisfaction.Default description",
-    defaultOgImage: "./defaultog.jpg",
-    latestPosts: 3,
+    title: "Jenn Junod",
+    titleSuffix: " | Full Stack Developer & Developer Advocate",
+    description: "I specialize in making technology human — enabling developers to understand, adopt, and adore technical products.",
+    defaultOgImage: "./defaultog.png",
+    latestPosts: 3, 
     postsPerPage: 3,
-    url: "https://pacamara-astro-6y7xr.kinsta.page",
+    url: "https://jennjunod.dev",
     social: {
         'dribbble': false,
         'facebook': false,
@@ -17,6 +17,5 @@ export default {
         'twitter': 'https://twitter.com/jennjunod',
         'blusky': 'https://bsky.app/profile/jennjunod.bsky.social',
         'linkedin': 'https://www.linkedin.com/in/jennjunod/'
-
     }
-}
+ }
