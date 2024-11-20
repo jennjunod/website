@@ -9,12 +9,14 @@ export default {
     social: {
         'dribbble': false,
         'facebook': false,
-        'github': 'https://github.com/palmiak',
+        'github': 'https://github.com/jennjunod',
         'instagram': false,
         'mastodon': false,
         'pinterest': false,
         'skype': false,
-        'twitter': 'https://twitter.com/palmiak_fp'
+        'twitter': 'https://twitter.com/jennjunod',
+        'blusky': 'https://bsky.app/profile/jennjunod.bsky.social',
+        'linkedin': 'https://www.linkedin.com/in/jennjunod/'
 
     }
 }
